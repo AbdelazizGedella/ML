@@ -1,0 +1,14 @@
+import pandas as pd
+import random
+
+symptoms = ["Runny nose", "Nasal congestion", "Sore throat", "Cough", "Fever"]
+diseases = ["Flu", "Common Cold"]
+
+data = []
+for _ in range(100):  # Generate 100 entries
+    row = {symptom: random.randint(0, 1) for symptom in symptoms}
+    row["Disease"] = random.choice(diseases)
+    data.append(row)
+
+df = pd.DataFrame(data)
+df.to_csv("training_data.csv", index=False)
